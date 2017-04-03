@@ -1,0 +1,446 @@
+
+
+require 'test/unit'
+require 'watir'
+
+module BaseClass
+  module ClassMethods
+    def startup
+
+print <<EOF
+
+
+
+
+
+
+    ╰　╮　╮　╮
+　　╰　╰　╰
+ ┌───────┐
+ │　　　　├╮    Prepare test.......
+ │███████││
+ │███████││     
+ │███████├╯
+ ╰───────╯
+
+
+
+EOF
+
+      puts '**************************************************'
+      puts 'What browser you want to use:'
+      puts ' 1 for chrome'
+      puts ' others for firefox'
+      puts '**************************************************'
+
+      input = gets.chomp
+      keyword = 'world market'
+
+      case input
+        when '1' then
+          browser_type='chrome'
+          puts ''
+          puts '******************** Chrome **********************'
+          puts ''
+        else
+          browser_type='firefox'
+          puts ''
+          puts '******************** Firefox **********************'
+          puts ''
+      end
+
+      $browser = Watir::Browser.new browser_type
+      $browser.driver.manage.window.maximize
+      $browser.goto('http://www.bbc.com')
+      $browser.text_field(:id, 'orb-search-q').set(keyword)
+      $browser.button(:value,'Search').click
+    end
+
+
+
+
+
+    def shutdown
+      puts 'shutdown'
+      $browser.close
+    end
+  end
+
+  class << self
+    def included(base)
+      base.extend(ClassMethods)
+    end
+  end
+
+  def setup
+    puts ''
+    puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  start testing #{self.name}  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
+    puts ''
+  end
+
+  def teardown
+    puts ''
+    puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> end of testing #{self.name} <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
+  end
+end
+
+
+
+
+
+
+class Bbc_myTestcase < Test::Unit::TestCase
+  include BaseClass
+
+  @@info_indicate=   '--------- info -----------'
+  @@warning_indicate='!!!!!!!!! warning !!!!!!!!'
+  @@business_tag = 0
+
+  ############################################################################ test cases area
+
+  ## check if the page has been loaded successfully
+  def test_load_page
+     assert_equal('BBC - Search results for world market',$browser.title,'Could not find page title with BBC - Search results for world market')
+  end
+
+## filter all
+  def test_filter_all
+    filter = 'filter-all'
+    select_filter_by_class(filter)
+    li_arr = get_results_as_array
+    check_number_of_results(li_arr)
+    check_result_has_date(li_arr)
+    check_result_has_headline(li_arr)
+    check_result_has_summary(li_arr)
+    check_show_more_result_btn
+    collect_Business_tag(li_arr)
+   # check_result_has_keyword(li_arr)
+  end
+
+
+#filter "news"
+  def test_filter_news
+    filter = 'filter-news'
+    li_arr = get_results_as_array
+    select_filter_by_class(filter)
+    check_number_of_results(li_arr)
+    check_result_has_date(li_arr)
+    check_result_has_headline(li_arr)
+    check_result_has_summary(li_arr)
+    check_result_datasite(li_arr, 'News')
+    check_show_more_result_btn
+    collect_Business_tag(li_arr)
+   # check_result_has_keyword(li_arr)
+  end
+
+## filter programmes
+  def test_filter_programmes
+    filter = 'filter-programmes'
+    select_filter_by_class(filter)
+    li_arr = get_results_as_array
+    check_number_of_results(li_arr)
+    check_result_has_date(li_arr)
+    check_result_has_headline(li_arr)
+    check_result_has_summary(li_arr)
+    check_result_datasite(li_arr, 'Programmes')
+    check_show_more_result_btn
+    collect_Business_tag(li_arr)
+    #check_result_has_keyword(li_arr)
+  end
+
+## filter sport
+  def test_filter_sport
+    filter = 'filter-sport'
+    select_filter_by_class(filter)
+    li_arr = get_results_as_array
+    check_number_of_results(li_arr)
+    check_result_has_date(li_arr)
+    check_result_has_headline(li_arr)
+    check_result_has_summary(li_arr)
+    check_result_datasite(li_arr, 'Sport')
+    check_show_more_result_btn
+    collect_Business_tag(li_arr)
+    #check_result_has_keyword(li_arr)
+  end
+
+# filter about bbc
+  def test_filter_bbc
+    filter = 'filter-bbc'
+    select_filter_by_class(filter)
+    li_arr = get_results_as_array
+    check_number_of_results(li_arr)
+    check_result_has_date(li_arr)
+    check_result_has_headline(li_arr)
+    check_result_has_summary(li_arr)
+    check_result_datasite(li_arr, 'About the BBC')
+    check_show_more_result_btn
+    collect_Business_tag(li_arr)
+    #check_result_has_keyword(li_arr)
+  end
+
+
+  def test_filter_world_service
+    filter = 'filter-worldservice'
+    select_filter_by_class(filter)
+    li_arr = get_results_as_array
+    check_number_of_results(li_arr)
+    check_result_has_date(li_arr)
+    check_result_has_headline(li_arr)
+    check_result_has_summary(li_arr)
+    check_result_datasite(li_arr, 'World Service')
+    check_show_more_result_btn
+    collect_Business_tag(li_arr)
+    #check_result_has_keyword(li_arr)
+  end
+  ############################################################################  end of test cases area
+
+
+
+
+
+  ############################################################################  my classes
+
+  def result_more_then_ten
+    total_result = get_data_total_results
+    #puts "#{@@info_indicate}: total search results is #{total_result}"
+    if total_result.to_i > 10
+      true
+    else
+      false
+    end
+  end
+
+
+  def select_filter_by_class(filter)
+    $browser.div(:class,'filters-content').wait_until_present
+    if $browser.link(:class,filter.chomp).present?
+      $browser.link(:class,filter.chomp).click
+    else
+      puts "#{@@warning_indicate} Could not find filter #{filter}"
+    end
+  end
+
+
+  def get_data_total_results
+     $browser.ols(:class,'search-results results')[0].attribute_value('data-total-results')
+  end
+
+  # make sure if the total results more than 10, then 10 result should be displayed
+  #  if the total results less than 10, display all results
+  def check_number_of_results(li_arr)
+    puts "#{@@info_indicate}: number of displayed results is #{li_arr.size}"
+    if result_more_then_ten
+      assert_true(li_arr.size == 10, 'display 10 results')
+    else
+      #result_more
+      assert_true(li_arr.size == get_data_total_results, 'display all results')
+    end
+  end
+
+  def get_results_as_array
+    $browser.ols(:class,'search-results results')[0].lis
+  end
+
+
+  def get_post_time(li_element)
+    times = li_element.times
+    if times.size > 0
+       times[0].attribute_value('datetime')
+    else
+      puts "#{@@warning_indicate}  Could not find time tag"
+    end
+  end
+
+
+# make sure each result has post date
+  def check_result_has_date(li_arr)
+      li_arr.each do |li|
+      assert_not_nil(get_post_time(li),'Could not found time tag')
+    end
+  end
+
+
+## make sure each result has headline
+  def check_result_has_headline(li_arr)
+    li_arr.each do |li|
+      assert_not_nil(get_headline(li),'Could not found headline')
+    end
+  end
+
+  def get_headline(li)
+    headline = li.div.h1.text
+    if headline.nil?
+      puts "#{@warning_indicate}  Could not find headline"
+      nil
+    else
+      headline
+    end
+  end
+
+
+
+  def get_summary_medium(li)
+    summary_medium = li.div.p(:class,'summary medium')
+    if summary_medium.nil?
+      puts "#{@warning_indicate}  Could not find summary medium"
+      nil
+    else
+      summary_medium
+    end
+  end
+
+  def get_summary_long(li)
+    summary_long = li.div.p(:class, 'summary long')
+    if summary_long.nil?
+      puts "#{@warning_indicate}  Could not find summary long"
+      nil
+    else
+      summary_long
+    end
+  end
+
+  def get_summary_short(li)
+    summary_short = li.div.p(:class,'summary short')
+    if summary_short.nil?
+      puts "#{@warning_indicate}  Could not find summary short"
+      nil
+    else
+      summary_short
+    end
+  end
+
+
+## make sure each result has 3 summaries
+  def check_result_has_summary(li_arr)
+    li_arr.each do |li|
+      assert_not_nil(get_summary_long(li),'Could not find summary long')
+      assert_not_nil(get_summary_medium(li),'Could not find summary medium')
+      assert_not_nil(get_summary_short(li),'Could not find summary short')
+    end
+  end
+
+
+
+  def check_result_datasite(li_arr, keyword)
+      li_arr.each  do |li|
+        signpost_site = get_signpost_site(li)
+        assert_equal(keyword,signpost_site.chomp, 'Could not find matched signpost_site')
+      end
+  end
+
+  def get_signpost_site(li)
+    signpost_site = li.span(:class,'signpost-site').text.chomp
+    if signpost_site.nil?
+      puts "#{@warning_indicate}  Could not find signpost_site"
+      nil
+    else
+      signpost_site
+    end
+  end
+
+
+  def get_signpost_section(li)
+
+    if li.span(:class,'signpost-section').exist?
+      signpost_section = li.span(:class,'signpost-section').text.chomp
+    end
+
+
+
+=begin
+    if signpost_section.nil?
+      puts "#{@warning_indicate}  Could not find signpost_site"
+      nil
+    else
+      signpost_section
+    end/
+=end
+  end
+
+  def check_show_more_result_btn
+    if result_more_then_ten
+      assert_not_nil(get_show_more_result_btn, 'Could not find "show more result" button')
+      check_function
+    else
+      #show more result btn should not be there
+      assert_nil(get_show_more_result_btn, '"show more result" button should not be there')
+    end
+  end
+
+  def get_show_more_result_btn
+    if $browser.link(:class, 'more').exist?
+      $browser.link(:class, 'more')
+    else
+      puts "#{@warning_indicate}  show more is not here"
+      nil
+    end
+  end
+
+
+  def check_function
+    before_ols_size = $browser.ols(:class,'search-results results').size
+    get_show_more_result_btn.click
+    # wait for 5 sec to let more result to be loaded
+    sleep 5
+    after_lis_size = $browser.ols(:class,'search-results results').size
+    assert_true(after_lis_size > before_ols_size, "Could not load more results")
+  end
+
+
+  def collect_Business_tag(li_arr)
+    li_arr.each  do |li|
+      signpost_section = get_signpost_section(li)
+      if signpost_section.to_s.downcase.== 'business'
+        @@business_tag = @@business_tag + 1
+      end
+    end
+  end
+
+
+
+=begin
+
+  def check_result_has_keyword(li_arr)
+    li_arr.each  do |li|
+      headline = get_headline(li)
+      summary_long   = get_summary_long(li)
+      summary_medium = get_summary_medium(li)
+      summary_short  = get_summary_short(li)
+
+      assert_true(check_content_has_keywords(headline,summary_long),'Missing either "world" or "Market" in  content')
+    end
+  end
+
+
+  def check_content_has_keywords(headline = '',summary_long='')#,summary_medium='',summary_short='')
+
+      headline_has_world=headline.to_s.downcase.include?('world')
+      headline_has_market=headline.to_s.downcase.include?('market')
+
+      summary_long_has_world=summary_long.to_s.downcase.include?('world')
+      summary_long_has_market=summary_long.to_s.downcase.include?('market')
+
+      summary_medium_has_world=summary_medium.downcase.include?('world')
+      summary_medium_has_market=summary_medium.downcase.include?('market')
+
+      summary_short_has_world=summary_short.downcase.include?('world')
+      summary_short_has_market=summary_short.downcase.include?('market')
+      has_market = headline_has_market || summary_long_has_market #|| summary_short_has_market || summary_medium_has_market
+      has_world = headline_has_world || summary_long_has_world #|| summary_short_has_world || summary_medium_has_world
+
+      puts "has market = #{has_market} and has world = #{has_world} >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> "
+
+      return has_world || has_market
+    end
+=end
+
+
+############################################################################ end of my classes
+end
+
+
+
+
+
+
+

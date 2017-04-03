@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5c1c96ca-0b8d-44a9-974c-bcfb37a19b11" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/RubyWatirProject.iml" afterPath="$PROJECT_DIR$/.idea/RubyWatirProject.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main" afterPath="$PROJECT_DIR$/main" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,23 +17,39 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/RubyWatirProject@main__1_.coverage" NAME="main (1) Coverage Results" MODIFIED="1491196415602" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="RubyWatirProject" />
     <SUITE FILE_PATH="coverage/RubyWatirProject@test.coverage" NAME="test Coverage Results" MODIFIED="1491096755172" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="RubyWatirProject" />
-    <SUITE FILE_PATH="coverage/RubyWatirProject@main.coverage" NAME="main Coverage Results" MODIFIED="1491100759905" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="RubyWatirProject" />
+    <SUITE FILE_PATH="coverage/RubyWatirProject@mytests.coverage" NAME="mytests Coverage Results" MODIFIED="1491249587766" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="RubyWatirProject" />
+    <SUITE FILE_PATH="coverage/RubyWatirProject@testsuiet.coverage" NAME="testsuiet Coverage Results" MODIFIED="1491250045840" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="RubyWatirProject" />
     <SUITE FILE_PATH="coverage/RubyWatirProject@code.coverage" NAME="code Coverage Results" MODIFIED="1491100967724" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="RubyWatirProject" />
     <SUITE FILE_PATH="coverage/RubyWatirProject@testcase.coverage" NAME="testcase Coverage Results" MODIFIED="1491119520983" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/.rvm/gems/ruby-2.4.1@global/gems/test-unit-3.2.3/lib/test/unit" MODULE_NAME="RubyWatirProject" />
     <SUITE FILE_PATH="coverage/RubyWatirProject@test__1_.coverage" NAME="test (1) Coverage Results" MODIFIED="1491121208027" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="RubyWatirProject" />
+    <SUITE FILE_PATH="coverage/RubyWatirProject@main.coverage" NAME="main Coverage Results" MODIFIED="1491253233799" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="RubyWatirProject" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="248">
-                <caret line="27" column="52" lean-forward="false" selection-start-line="27" selection-start-column="52" selection-end-line="27" selection-end-column="52" />
+              <first_editor relative-caret-position="547">
+                <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
                 <folding />
               </first_editor>
               <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/main">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="182">
+              <caret line="268" column="56" lean-forward="true" selection-start-line="268" selection-start-column="56" selection-end-line="268" selection-end-column="56" />
+              <folding>
+                <element signature="n#BaseClass#0;n#!!top" expanded="false" />
+                <element signature="e#1287#1466#0" expanded="false" />
+                <element signature="n#TS_MyTestSuite#0;n#!!top" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -56,8 +75,9 @@
       <find>Could not load more results</find>
       <find>Could not find matched signpost_site</find>
       <find>wait</find>
-      <find>error</find>
       <find>check_result_has_keyword(li_arr)</find>
+      <find>error</find>
+      <find>@@info_indicate</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -70,13 +90,15 @@
         <option value="$PROJECT_DIR$/setup" />
         <option value="$PROJECT_DIR$/test_name.rb" />
         <option value="$PROJECT_DIR$/test" />
-        <option value="$PROJECT_DIR$/main" />
         <option value="$PROJECT_DIR$/myclass.rb" />
         <option value="$PROJECT_DIR$/code.rb" />
         <option value="$PROJECT_DIR$/test.rb" />
         <option value="$PROJECT_DIR$/READ_ME.txt" />
         <option value="$PROJECT_DIR$/main.rb" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/mytests.rb" />
+        <option value="$PROJECT_DIR$/testsuiet" />
+        <option value="$PROJECT_DIR$/main" />
       </list>
     </option>
   </component>
@@ -87,8 +109,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1473" />
-    <option name="y" value="-205" />
+    <option name="x" value="1785" />
+    <option name="y" value="-50" />
     <option name="width" value="1688" />
     <option name="height" value="978" />
   </component>
@@ -143,7 +165,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Ruby.main (1)">
+  <component name="RunManager" selected="Ruby.main">
     <configuration default="false" name="test (1)" type="RubyRunConfigurationType" factoryName="Ruby" temporary="true">
       <module name="RubyWatirProject" />
       <RUBY_RUN_CONFIG NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
@@ -179,6 +201,44 @@
         </COVERAGE_PATTERN>
       </EXTENSION>
       <RUBY_RUN_CONFIG NAME="SCRIPT_PATH" VALUE="$USER_HOME$/.rvm/gems/ruby-2.4.1@global/gems/test-unit-3.2.3/lib/test/unit/testcase.rb" />
+      <RUBY_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="" />
+      <method />
+    </configuration>
+    <configuration default="false" name="mytests" type="RubyRunConfigurationType" factoryName="Ruby" temporary="true">
+      <module name="RubyWatirProject" />
+      <RUBY_RUN_CONFIG NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RUBY_RUN_CONFIG NAME="WORK DIR" VALUE="$MODULE_DIR$" />
+      <RUBY_RUN_CONFIG NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RUBY_RUN_CONFIG NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RUBY_RUN_CONFIG NAME="myPassParentEnvs" VALUE="true" />
+      <envs />
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
+        <COVERAGE_PATTERN ENABLED="true">
+          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
+        </COVERAGE_PATTERN>
+      </EXTENSION>
+      <RUBY_RUN_CONFIG NAME="SCRIPT_PATH" VALUE="$MODULE_DIR$/mytests.rb" />
+      <RUBY_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="" />
+      <method />
+    </configuration>
+    <configuration default="false" name="testsuiet" type="RubyRunConfigurationType" factoryName="Ruby" temporary="true">
+      <module name="RubyWatirProject" />
+      <RUBY_RUN_CONFIG NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RUBY_RUN_CONFIG NAME="WORK DIR" VALUE="$MODULE_DIR$" />
+      <RUBY_RUN_CONFIG NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RUBY_RUN_CONFIG NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RUBY_RUN_CONFIG NAME="myPassParentEnvs" VALUE="true" />
+      <envs />
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
+        <COVERAGE_PATTERN ENABLED="true">
+          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
+        </COVERAGE_PATTERN>
+      </EXTENSION>
+      <RUBY_RUN_CONFIG NAME="SCRIPT_PATH" VALUE="$MODULE_DIR$/testsuiet" />
       <RUBY_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="" />
       <method />
     </configuration>
@@ -325,20 +385,23 @@
       <envs />
       <method />
     </configuration>
-    <list size="6">
+    <list size="8">
       <item index="0" class="java.lang.String" itemvalue="Ruby.main" />
       <item index="1" class="java.lang.String" itemvalue="Ruby.test" />
       <item index="2" class="java.lang.String" itemvalue="Ruby.main (1)" />
       <item index="3" class="java.lang.String" itemvalue="Ruby.code" />
       <item index="4" class="java.lang.String" itemvalue="Ruby.test (1)" />
       <item index="5" class="java.lang.String" itemvalue="Ruby.testcase" />
+      <item index="6" class="java.lang.String" itemvalue="Ruby.mytests" />
+      <item index="7" class="java.lang.String" itemvalue="Ruby.testsuiet" />
     </list>
     <recent_temporary>
-      <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="Ruby.test (1)" />
-        <item index="1" class="java.lang.String" itemvalue="Ruby.testcase" />
-        <item index="2" class="java.lang.String" itemvalue="Ruby.code" />
-        <item index="3" class="java.lang.String" itemvalue="Ruby.main (1)" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Ruby.testsuiet" />
+        <item index="1" class="java.lang.String" itemvalue="Ruby.mytests" />
+        <item index="2" class="java.lang.String" itemvalue="Ruby.test (1)" />
+        <item index="3" class="java.lang.String" itemvalue="Ruby.testcase" />
+        <item index="4" class="java.lang.String" itemvalue="Ruby.code" />
       </list>
     </recent_temporary>
   </component>
@@ -356,12 +419,12 @@
       <workItem from="1490994886179" duration="9642000" />
       <workItem from="1491076192108" duration="13709000" />
       <workItem from="1491100895861" duration="267000" />
-      <workItem from="1491101408027" duration="44249000" />
+      <workItem from="1491101408027" duration="57452000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67867000" />
+    <option name="totallyTimeSpent" value="81070000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -373,7 +436,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1473" y="-205" width="1688" height="978" extended-state="0" />
+    <frame x="1785" y="-50" width="1688" height="978" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12393682" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -382,7 +445,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32992035" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5432961" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.09758772" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35855263" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -421,7 +484,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="10" />
+      <option name="time" value="12" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -482,7 +545,6 @@
     <entry file="file://$PROJECT_DIR$/support.rb" />
     <entry file="file://$PROJECT_DIR$/test_name.rb" />
     <entry file="file://$PROJECT_DIR$/test" />
-    <entry file="file://$PROJECT_DIR$/main" />
     <entry file="file://$PROJECT_DIR$/Results/Report-19-42-47-1-4-2017.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -579,14 +641,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/MyProject">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mytests.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testsuiet">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="104" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="248">
-            <caret line="27" column="52" lean-forward="false" selection-start-line="27" selection-start-column="52" selection-end-line="27" selection-end-column="52" />
+          <first_editor relative-caret-position="547">
+            <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
             <folding />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="268" column="56" lean-forward="true" selection-start-line="268" selection-start-column="56" selection-end-line="268" selection-end-column="56" />
+          <folding>
+            <element signature="n#BaseClass#0;n#!!top" expanded="false" />
+            <element signature="e#1287#1466#0" expanded="false" />
+            <element signature="n#TS_MyTestSuite#0;n#!!top" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -42,9 +42,9 @@ A brief explanation of your approach in completing this exercise:
 
     1: Went through basic Ruby tutorial and finished environment setting
     2: Searched for some examples, had deeper understanding of watir automation test
-    3: Manually went through the test steps, designed test cases and test plan
-    4: started work on it
-
+    3: requirements confirmaton  
+    4: Manually went through the test steps, designed test cases and test plan, 
+        thinking about corner caes
 
 Future enhancements:
 

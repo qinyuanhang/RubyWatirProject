@@ -24,8 +24,8 @@ Bonus Steps:
 *********************************************************
 Prerequisites
 
-1. You must use the Ruby WatiR Framework. 
-2. You must use ruby's Test/Unit class 
+    1. You must use the Ruby WatiR Framework. 
+    2. You must use ruby's Test/Unit class 
 
 *********************************************************
 
@@ -40,6 +40,7 @@ Test cases implemented:
 checking each filtered result follows belowing steps:
 
 1, check each search result contains basic info
+<<<<<<< Updated upstream
 
     (1). headline
     (2). summary(short/medium/long)
@@ -53,6 +54,16 @@ checking each filtered result follows belowing steps:
     
 ********************************************************
 
+=======
+    (1) headline
+    (2) summary
+    (3) post date
+    (4) data site(should matches to filter key word)
+2, verify the data total result
+    (1) if total result > 10, check there are at most 10 articles displayed and "show more result" button display
+    (2) if total result <= 10, check total number of articles matches total result and "show more result" button disappear
+******************************************************************************************************************************************
+>>>>>>> Stashed changes
 Test cases to be implemented:
 
 ********************************************************

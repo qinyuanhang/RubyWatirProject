@@ -1,0 +1,24 @@
+
+
+load './tests/result_test.rb'
+load './tests/show_more_coverage_test.rb'
+load './tests/filter_coverage_test.rb'
+require 'test/unit/testsuite'
+
+
+
+
+class TS_MyTestSuite < Test::Unit::TestSuite
+
+  def self.suite
+    result = self.new(self.class.name)
+    #result << ResultTest.suite
+    result << FilterCoverageTest.suite
+    result << ShowMoreCoverageTest.suite
+
+
+    return result
+  end
+
+end
+Test::Unit::UI::Console::TestRunner.run(TS_MyTestSuite)

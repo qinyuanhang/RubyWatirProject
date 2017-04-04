@@ -1,5 +1,7 @@
 
 
+
+
 require 'test/unit'
 require 'watir'
 require 'test/unit/testsuite'
@@ -9,7 +11,7 @@ module BaseClass
   module ClassMethods
     def startup
 
-print <<EOF
+      print <<EOF
 
     ╰　╮　╮　╮
 　　╰　╰　╰
@@ -57,7 +59,9 @@ EOF
     def shutdown
 
 
-print <<EOF
+
+
+      print <<EOF
 
   
 
@@ -75,9 +79,7 @@ EOF
 
       $browser.close
     end
-end
-
-
+  end
 
   class << self
     def included(base)
@@ -88,6 +90,7 @@ end
   def setup
     puts ''
     puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  start testing #{self.name}  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
+    #puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  start testing #  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
     puts ''
   end
 
@@ -98,11 +101,10 @@ end
   end
 
 
-
 end
 
 
-class Bbc_myTestcase < Test::Unit::TestCase
+class ResultTest < Test::Unit::TestCase
   include BaseClass
 
   @@info_indicate=   '--------- info -----------'
@@ -112,39 +114,41 @@ class Bbc_myTestcase < Test::Unit::TestCase
   @@total_month_less_31days = 0
   @@month_31 = Array[1,3,5,7,8,10,12]
 
+
+
   ############################################################################ test cases area
 
   ## check if the page has been loaded successfully
 
-## filter all
+  ## filter all
   def test_a_filter_all
     filter = 'filter-all'
     tag_name='All'
     basic_check_list(filter, tag_name)
   end
 
-#filter "news"
+  #filter "news"
   def test_b_filter_news
     filter = 'filter-news'
     tag_name='news'
     basic_check_list(filter, tag_name)
   end
 
-## filter programmes
+  ## filter programmes
   def test_d_filter_programmes
     filter = 'filter-programmes'
     tag_name='Programmes'
     basic_check_list(filter, tag_name)
   end
 
-## filter sport
+  ## filter sport
   def test_e_filter_sport
     filter = 'filter-sport'
     tag_name = 'Sport'
     basic_check_list(filter, tag_name)
   end
 
-# filter about bbc
+  # filter about bbc
   def test_f_filter_bbc
     filter = 'filter-bbc'
     tag_name = 'About the BBC'
@@ -219,7 +223,7 @@ class Bbc_myTestcase < Test::Unit::TestCase
 
 
   def get_data_total_results
-     $browser.ols(:class,'search-results results')[0].attribute_value('data-total-results')
+    $browser.ols(:class,'search-results results')[0].attribute_value('data-total-results')
   end
 
   # make sure if the total results more than 10, then 10 result should be displayed
@@ -242,7 +246,7 @@ class Bbc_myTestcase < Test::Unit::TestCase
   def get_post_time(li_element)
     times = li_element.times
     if times.size > 0
-       times[0].attribute_value('datetime')
+      times[0].attribute_value('datetime')
     else
       nil
     end
@@ -252,11 +256,11 @@ class Bbc_myTestcase < Test::Unit::TestCase
   def check_result_has_img(li_arr)
     puts "#{@@info_indicate} start checking img"
     li_arr.each do |li|
-    class_img = li.articles[0].attribute_value('class').to_s.chomp.downcase
+      class_img = li.articles[0].attribute_value('class').to_s.chomp.downcase
       if class_img.include?'has_image'
-          assert_equal(1,li.articles[0].imgs.size,"#{@@warning_indicate} incorrect number of picture displayed")
+        assert_equal(1,li.articles[0].imgs.size,"#{@@warning_indicate} incorrect number of picture displayed")
       else
-          assert_equal(0,li.articles[0].imgs.size,"#{@@warning_indicate} there should not be any picture")
+        assert_equal(0,li.articles[0].imgs.size,"#{@@warning_indicate} there should not be any picture")
       end
     end
   end
@@ -264,16 +268,16 @@ class Bbc_myTestcase < Test::Unit::TestCase
 
 
 
-# make sure each result has post date
+  # make sure each result has post date
   def check_result_has_date(li_arr)
-      puts "#{@@info_indicate} start checking post date"
-      li_arr.each do |li|
+    puts "#{@@info_indicate} start checking post date"
+    li_arr.each do |li|
       assert_not_nil(get_post_time(li),"#{@@warning_indicate}Could not found time tag//n")
     end
   end
 
 
-## make sure each result has headline
+  ## make sure each result has headline
   def check_result_has_headline(li_arr)
     puts "#{@@info_indicate} start checking headline"
     li_arr.each do |li|
@@ -324,7 +328,7 @@ class Bbc_myTestcase < Test::Unit::TestCase
   end
 
 
-## make sure each result has 3 summaries
+  ## make sure each result has 3 summaries
   def check_result_has_summary(li_arr)
     puts "#{@@info_indicate} start checking summaries(long, medium, short)"
     li_arr.each do |li|
@@ -338,10 +342,10 @@ class Bbc_myTestcase < Test::Unit::TestCase
 
   def check_result_datasite(li_arr, keyword)
     puts "#{@@info_indicate} start checking data site"
-      li_arr.each  do |li|
-        signpost_site = get_signpost_site(li)
-        assert_equal(keyword.downcase,signpost_site.chomp.downcase, "#{@@warning_indicate}Could not find matched signpost_site")
-      end
+    li_arr.each  do |li|
+      signpost_site = get_signpost_site(li)
+      assert_equal(keyword.downcase,signpost_site.chomp.downcase, "#{@@warning_indicate}Could not find matched signpost_site")
+    end
   end
 
   def get_signpost_site(li)
@@ -415,16 +419,3 @@ end
 
 
 
-
-
-class TS_MyTestSuite < Test::Unit::TestSuite
-
-
-  def self.suite
-    result = self.new(self.class.name)
-    result << Bbc_myTestcase.suite
-    return result
-  end
-
-end
-Test::Unit::UI::Console::TestRunner.run(TS_MyTestSuite)

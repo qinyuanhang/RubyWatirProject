@@ -1,67 +1,88 @@
+# Automate Test with Watir 
 
-Author: Yuanhang Qin
+generate a runable automation test for www.bbc.com
 
+## Getting Started
 
-Project Describe:
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-    Given a web page, and test it. see details below.
-    
-Prerequisites
+### Prerequisites
 
-    1. You must use the Ruby WatiR Framework. 
-    2. You must use ruby's Test/Unit class 
+What things you need to install the software and how to install them
 
+```
+Give examples
+```
 
+### Installing
 
-Installation instructions:
+A step by step series of examples that tell you have to get a development env running
 
+Say what the step will be
 
-How to run:
+```
+Give the example
+```
 
-    
+And repeat
 
-Test cases implemented:
- 
-   
-checking each filtered result follows steps below:
+```
+until finished
+```
 
-    1), check each search result contains basic info
-        (1). headline
-        (2). summary(short/medium/long)
-        (3). post date
-        (4). data site(should matches to filter key word)  
-    2), verify img tag
-        (1). if artical class as 'has_img', should contain a img tag
-        (2). if not, then no img tag   
-    3), verify the data total result
-        (1). if total result > 10, check there are at most 10 articles displayed and "show more result" button display
-        (2). if total result <= 10, check total number of articles matches total result and "show more result" button disappear
-    4), if "show more result" btn, display, click it, more result should be added    
-    
-Test cases to be implemented:
-    
+End with an example of getting some data out of the system or using it for a little demo
 
+## Running the tests
 
-A brief explanation of your approach in completing this exercise:
+Explain how to run the automated tests for this system
 
-    1: Went through basic Ruby tutorial and finished environment setting
-    2: Searched for some examples, had deeper understanding of watir automation test
-<<<<<<< HEAD
-    3: requirements confirmaton  
-    4: Manually went through the test steps, designed test cases and test plan, 
-        thinking about corner caes
-=======
-    3: Manually went through the test steps, designed test cases and test plan
-    4: started work on it
-        problem1: i dont wanna setup and teardown for every test, 
-            result: search for solution, create a seperated module and test suite
- 
+### Break down into end to end tests
 
->>>>>>> origin/master
+Explain what these tests test and why
 
-Future enhancements:
+```
+Give an example
+```
 
+### And coding style tests
 
+Explain what these tests test and why
 
-Compromises made:
+```
+Give an example
+```
+
+## Deployment
+
+Add additional notes about how to deploy this on a live system
+
+## Built With
+
+* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
+* [Maven](https://maven.apache.org/) - Dependency Management
+* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+
+## Contributing
+
+Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+
+## Versioning
+
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+
+## Authors
+
+* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+
+See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Acknowledgments
+
+* Hat tip to anyone who's code was used
+* Inspiration
+* etc
 

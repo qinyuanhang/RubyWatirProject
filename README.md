@@ -25,12 +25,10 @@ What things you need to install the software and how to install them
 
 Explain how to run the automated tests for this system
 
-    1: use command line tool, cd to the project file 
-    2: type "ruby testsuite"
-        follow the instruction to select browser
-            enter 1 for chrome
-            enter 2 for firefox
-    3: When finished, check folder "Results", there would be a report HTML file   
+    1: Download the project, unzip it.
+    2: Use command line tool, cd to the project file 
+    3: Type "ruby testsuite
+    4: When finished, check folder "Results", there would be a report HTML file   
     
 ## Test cases implemented
     1: test functions of each filter 

@@ -11,10 +11,13 @@ generate a runable automation test for www.bbc.com
 What things you need to install the software and how to install them
 
     1: Have Ruby installed (2.4.1)
-    2: Have Wtir intalled 
+    2: Have Watir intalled 
     3: Have Test-Unit install 
     4: Have chrome and firefox drivers downloaded and make sure the path has been included in environment variables
 
+* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
+* [Maven](https://maven.apache.org/) - Dependency Management
+* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
 
 ## How to run
 
@@ -49,7 +52,7 @@ Explain how to run the automated tests for this system
     1: add more filter function tested 
     2: make sure each link directed to the right page 
     3: image display successfully 
-    4: 
+ 
 ## A brief explanation of your approach in completing this exercise.
     1: requirements collection  
     2: Learn Ruby from the begining 

@@ -10,12 +10,9 @@ generate a runable automation test for www.bbc.com
 
 What things you need to install the software and how to install them
 
-    1: Have Ruby installed (2.4.1)
-    
-    2: Have Watir installed 
-    
-    3: Have Test-Unit install
-    
+    1: Have Ruby installed (2.4.1)    
+    2: Have Watir installed     
+    3: Have Test-Unit install    
     4: Have chrome and firefox drivers downloaded and make sure the path has been included in environment variables
 
 * [Ruby](https://github.com/ruby/ruby) - see more about Ruby
@@ -78,7 +75,7 @@ Explain how to run the automated tests for this system
     Only verified in OS X Yosemite version 10.10.5. 
     Only tested in Maximized window size, change of window size would cause some test failure
     
-## Authors
+## Author
 
 * ** Yuanhang Qin ** 
 

@@ -1,10 +1,8 @@
 ### Automate Test with Watir 
 
-generate a runable automation test for www.bbc.com
+Implement a automation test for www.bbc.com
 
 ## Getting Started
-
-
 
 ## Installation instructions
 

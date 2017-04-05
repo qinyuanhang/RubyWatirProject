@@ -9,11 +9,10 @@ These instructions will get you a copy of the project up and running on your loc
 ### Prerequisites
 
 What things you need to install the software and how to install them
- 
- 1: Ruby installed (2.4.1)
- 2: Wtir intalled 
- 3: Test-Unit install 
- 4: Have chrome and firefox drivers and make sure the path has been included in environment variables
+    1: Ruby installed (2.4.1)
+    2: Wtir intalled 
+    3: Test-Unit install 
+    4: Have chrome and firefox drivers and make sure the path has been included in environment variables
 
 
 ## Running the tests

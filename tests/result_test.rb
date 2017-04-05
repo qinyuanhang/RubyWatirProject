@@ -6,17 +6,29 @@ require 'test/unit'
 require 'watir'
 require 'test/unit/testsuite'
 require 'test/unit/ui/console/testrunner'
+require_relative '../testreport'
+
 
 module BaseClass
   module ClassMethods
     def startup
+
+      $last_failure = 0
+      $last_error = 0
+
+      $report_path = create_report
+      insert_head_title($report_path,"Bonus point --- HTML Report")
+      insert_reportname_date($report_path,"My Bonus -- HTML Report",$result_date )
+      start_table($report_path)
+
+
 
       print <<EOF
 
     ╰　╮　╮　╮
 　　╰　╰　╰
  ┌───────┐
- │　　　　├╮    Prepare test.......
+ │　　　　├╮    Prepare test and generating report.......
  │███████││
  │███████││     
  │███████├╯
@@ -25,12 +37,16 @@ module BaseClass
 EOF
 
       puts '**************************************************'
+
+
+
       puts 'What browser you want to use:'
       puts ' => enter 1 for chrome'
       puts ' => enter others digits for firefox'
       puts '**************************************************'
 
       input = gets.chomp
+     # input = 1
       keyword = 'world market'
 
       case input
@@ -49,15 +65,17 @@ EOF
       $browser = Watir::Browser.new browser_type
       $browser.driver.manage.window.maximize
       $browser.goto('http://www.bbc.com')
-      sleep 5
+      sleep 7
       $browser.text_field(:id, 'orb-search-q').wait_until_present
       $browser.text_field(:id, 'orb-search-q').set(keyword)
       $browser.button(:value,'Search').click
+
     end
 
 
     def shutdown
 
+      close_table($report_path)
 
 
 
@@ -95,6 +113,23 @@ EOF
   end
 
   def teardown
+
+
+
+    if(@_result.failure_count > $last_failure || @_result.error_count > $last_error)
+      test_result = 'fail'
+    else
+      test_result = 'pass'
+    end
+
+
+
+    $last_failure = @_result.failure_count
+    $last_error = @_result.error_count
+
+    report_row($report_path,self.name ,$browser.name, test_result)
+
+
     puts ''
     puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> end of testing #{self.name} <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
     puts ''
@@ -167,6 +202,7 @@ class ResultTest < Test::Unit::TestCase
     puts "the number of articles that have the '"'Business'"' tag is #{@@business_tag}"
     puts "the number of articles that have the '"'Business'"' tag with months that have less than 31 days is #{@@total_month_less_31days}"
     puts "the number of articles that have the '"'Business'"' tag that occur on months with 31 days is #{@@total_month_31days}"
+    summary_report($report_path,@@business_tag,@@total_month_31days.to_s,@@total_month_less_31days.to_s)
   end
 
 

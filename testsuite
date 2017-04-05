@@ -1,10 +1,8 @@
 
 
 load './tests/result_test.rb'
-load './tests/show_more_coverage_test.rb'
-load './tests/filter_coverage_test.rb'
 require 'test/unit/testsuite'
-
+require_relative './testreport'
 
 
 
@@ -12,11 +10,9 @@ class TS_MyTestSuite < Test::Unit::TestSuite
 
   def self.suite
     result = self.new(self.class.name)
-    #result << ResultTest.suite
-    result << FilterCoverageTest.suite
-    result << ShowMoreCoverageTest.suite
-
-
+    result << ResultTest.suite
+    #result << FilterCoverageTest.suite
+    #result << ShowMoreCoverageTest.suite
     return result
   end
 

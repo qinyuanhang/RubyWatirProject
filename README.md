@@ -54,9 +54,9 @@ Explain how to run the automated tests for this system
  
 ## A brief explanation of your approach in completing this exercise.
     1: requirements collection  
-    2: Learn Ruby from the beginning 
-    3：Search for some watir test samples, try to implement in my local 
-    4: Start from modify the sample to my test
+    2: learn Ruby from the beginning 
+    3: search for some watir test samples, try to implement in my local 
+    4: start from modify the sample to my test
 
 ## Future enhancements
     
@@ -68,8 +68,8 @@ Explain how to run the automated tests for this system
 ## Compromises made
 
     in order to test multiple filter function on the same page, I include all test cases into one big test, so that only once setup needed for multiple tests.
-    Only verified in OS X Yosemite version 10.10.5. 
-    Only tested in Maximized window size, change of window size would cause some test failure
+    only verified in OS X Yosemite version 10.10.5. 
+    only tested in Maximized window size, change of window size would cause some test failure
     
 ## Author
 
